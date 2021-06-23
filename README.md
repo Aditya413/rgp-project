@@ -1,15 +1,19 @@
-# Conditions 
-Spend no more than 35 minutes on the test. 
+# Goal
 
-The goal of the exercise is not to achieve 100% completeness but for us to observe your coding style. 
+Goal was to implement 3 feature.
 
-Consider your pair programming partners as Product Owners to whom you can ask questions.
+1. Calculate the median value for a list of given temperatures.
+2. Calculate the mean value for a list of given temperatures.
+3. Calculate the mode value for a list of given temperatures.
 
-Approach the exercise the way you would approach your usual tasks at your current work place. This includes asking the PO for details, using the internet, etc.
+# Approach
+
+After analysing the problem statement and to achieve the desired goal, I decided to use "Strategy design pattern" which
+help us to execute the different computation strategy during runtime. It has also helped me to isolate the business
+logic of a class from the implementation details.
 
 # Requirements
-This is a simple application that currently prints out temperatures.
 
-Implement a new feature to calculate the median and then re-factor the code to support an external service.
-
-# Good luck!
+Currently, this application prints MEAN, MEDIAN and MODE of a provided hardcoded Temperature list. But, it is
+implemented in such a way that if we are required to take the inputs from the user then it won't have any impact on our
+business logic and can be easily achieved.

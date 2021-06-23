@@ -1,22 +1,46 @@
 package temperature.model;
 
-public class Temperature {
+import java.util.Objects;
 
-    private double celsiusTemp;
+public class Temperature implements Comparable<Temperature> {
 
-    public Temperature() {
+  private double celsiusTemp;
+
+  public Temperature() {}
+
+  public Temperature(final double celsiusTemp) {
+    this.celsiusTemp = celsiusTemp;
+  }
+
+  public double getCelsiusTemp() {
+    return celsiusTemp;
+  }
+
+  public void setCelsiusTemp(final int celsiusTemp) {
+    this.celsiusTemp = celsiusTemp;
+  }
+
+  @Override
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public Temperature(double celsiusTemp) {
-        this.celsiusTemp = celsiusTemp;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    final Temperature that = (Temperature) o;
+    return Double.compare(that.celsiusTemp, celsiusTemp) == 0;
+  }
 
-    public double getCelsiusTemp() {
-        return celsiusTemp;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(celsiusTemp);
+  }
 
-    public void setCelsiusTemp(int celsiusTemp) {
-        this.celsiusTemp = celsiusTemp;
-    }
-
+  @Override
+  public int compareTo(final Temperature temperature) {
+    if (this.getCelsiusTemp() < temperature.getCelsiusTemp()) return -1;
+    else if (this.getCelsiusTemp() > temperature.getCelsiusTemp()) return 1;
+    return 0;
+  }
 }
